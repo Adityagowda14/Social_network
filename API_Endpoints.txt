@@ -1,0 +1,17 @@
+http://127.0.0.1:8000/home/
+
+http://127.0.0.1:8000/home/register/
+
+http://127.0.0.1:8000/home/login/
+
+http://127.0.0.1:8000/home/search/?q=Test
+
+http://127.0.0.1:8000/home/send_request/12/
+
+http://127.0.0.1:8000/home/pending_requests/
+
+http://127.0.0.1:8000/home/reject_request/7/
+
+http://127.0.0.1:8000/home/accept_request/9/
+
+http://127.0.0.1:8000/home/friends/

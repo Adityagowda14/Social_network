@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Pending Friend Requests
+{% endblock %}
+
+{% block content %}
+<h1>Pending Friend Requests</h1>
+
+{% if pending_requests %}
+    <div class="container row gap-3">
+    {% for request in pending_requests %}
+        <div class="card col-md-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ request.from_user.username }}</h5>
+                <p class="card-text">{{ request.from_user.email }}</p>
+                <form method="post" action="{% url 'accept_request' request.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Accept</button>
+                </form>
+                <form method="post" action="{% url 'reject_request' request.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Reject</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>You have no pending friend requests.</p>
+{% endif %}
+
+<a href="{% url 'tweet_list' %}" class="btn btn-primary mt-4">Back to Home</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Friends List
+{% endblock %}
+
+{% block content %}
+<h1>Your Friends</h1>
+
+{% if friends %}
+    <div class="container row gap-3">
+    {% for friend in friends %}
+        <div class="card col-md-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ friend.username }}</h5>
+                <p class="card-text">{{ friend.email }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>You have no friends yet.</p>
+{% endif %}
+
+<a href="{% url 'tweet_list' %}" class="btn btn-primary mt-4">Back to Home</a>
+{% endblock %}
+

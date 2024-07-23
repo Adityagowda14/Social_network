@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Django
+{% endblock %}
+
+{% block content %} 
+{% if user.is_authenticated %}
+<h1 class="text-center mt-4">
+    Welcome {{user.username}}
+</h1>
+{% else %}
+<h1 class="text-center mt-4">
+    Social Network
+</h1>
+{% endif %}
+{% endblock %}
